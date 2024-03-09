@@ -1,13 +1,9 @@
 package com.harshkumarpatwa.productservice9thmarch.services;
 
-import com.harshkumarpatwa.productservice9thmarch.dtos.FakeStoreAllCategoriesDto;
-import com.harshkumarpatwa.productservice9thmarch.dtos.FakeStoreCategoryDto;
 import com.harshkumarpatwa.productservice9thmarch.models.Category;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class FakeStoreCategoryService implements CategoryServices{
@@ -16,16 +12,14 @@ public class FakeStoreCategoryService implements CategoryServices{
 
 
     @Override
-    public List<Category> getAllCategories() {
-        FakeStoreAllCategoriesDto fakeStoreAllCategoriesDto = restTemplate.getForObject(
-                "https://fakestoreapi.com/categories/",
-                FakeStoreAllCategoriesDto.class
-        );
-        List<Category> allCategories = new ArrayList<>();
-        for(int i =0;i<fakeStoreAllCategoriesDto.getCategoryList().size();i++){
-            allCategories.add(fakeStoreAllCategoriesDto.getCategoryList().get(i));
-        }
+    public String[] getAllCategories() {
+        ResponseEntity<String[]> response =
+                restTemplate.getForEntity(
+                        "https://fakestoreapi.com/products/categories",
+                        String[].class);
+        String[] allCategories = response.getBody();
         return allCategories;
+
     }
 
     @Override

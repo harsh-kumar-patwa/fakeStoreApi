@@ -1,6 +1,6 @@
 package com.harshkumarpatwa.productservice9thmarch.services;
 
-import com.harshkumarpatwa.productservice9thmarch.dtos.FakeStoreAllProductsDto;
+
 import com.harshkumarpatwa.productservice9thmarch.dtos.FakeStoreProductDto;
 import com.harshkumarpatwa.productservice9thmarch.models.Category;
 import com.harshkumarpatwa.productservice9thmarch.models.Product;
@@ -20,7 +20,7 @@ public class FakeStoreProductService implements ProductServices{
 
         ResponseEntity<Product[]> response =
                 restTemplate.getForEntity(
-                        "https://fakestoreapi.com/products/",
+                        "https://fakestoreapi.com/products",
                         Product[].class);
         Product[] allProducts = response.getBody();
 //        List<Product> allProducts = new ArrayList<>();

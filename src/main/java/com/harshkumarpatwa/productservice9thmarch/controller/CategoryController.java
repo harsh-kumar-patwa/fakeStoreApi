@@ -4,16 +4,17 @@ import com.harshkumarpatwa.productservice9thmarch.models.Category;
 import com.harshkumarpatwa.productservice9thmarch.services.CategoryServices;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-
+@RestController
 public class CategoryController {
     private CategoryServices categoryServices;
     CategoryController(CategoryServices categoryServices){
         this.categoryServices=categoryServices;
     }
-    @GetMapping("/categories")
-    public List<Category> getAllCategories(){
+    @GetMapping("/product/categories")
+    public String[] getAllCategories(){
 
         return categoryServices.getAllCategories();
     }
