@@ -29,9 +29,9 @@ public class ProductController {
         return productService.addProduct(product);
     }
     @PostMapping("/products/{id}")
-    public Product updateProduct(@PathVariable("id")Long id){
+    public Product updateProduct(@PathVariable("id")Long id, ){
 
-        return productService.updateProduct(id);
+        return productService.updateProduct(id, );
     }
     @GetMapping("/products/{id}")
     public Product deleteProduct(@PathVariable("id")Long id){

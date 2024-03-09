@@ -63,7 +63,7 @@ public class FakeStoreProductService implements ProductServices{
 
         return product;
     }
-    public Product updateProduct(Long id){
+    public Product updateProduct(Long id, ){
 
         Product product = getSingleProduct(id);
         FakeStoreProductDto newProduct = new FakeStoreProductDto();
@@ -74,6 +74,9 @@ public class FakeStoreProductService implements ProductServices{
         newProduct.setCategory(product.getCategory().getName());
         newProduct.setDescription(product.getDescription());
         newProduct.setTitle(product.getName());
+
+        // update fields
+
 
         restTemplate.put(
                 "https:/fakestoreapi.com/product/"+id,newProduct
