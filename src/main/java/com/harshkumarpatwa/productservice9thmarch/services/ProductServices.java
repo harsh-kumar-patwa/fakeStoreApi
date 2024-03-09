@@ -1,11 +1,11 @@
-package services;
+package com.harshkumarpatwa.productservice9thmarch.services;
 
-import models.Product;
+import com.harshkumarpatwa.productservice9thmarch.models.Product;
 
 import java.util.List;
 
 public interface ProductServices {
-    List<Product> getAllProducts();
+    Product[] getAllProducts();
     Product getSingleProduct(Long id);
     Product addProduct(Product product);
     Product updateProduct(Long id);

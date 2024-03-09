@@ -1,8 +1,8 @@
-package dtos;
+package com.harshkumarpatwa.productservice9thmarch.dtos;
 
 import lombok.Getter;
 import lombok.Setter;
-import models.Product;
+import com.harshkumarpatwa.productservice9thmarch.models.Product;
 
 import java.util.List;
 

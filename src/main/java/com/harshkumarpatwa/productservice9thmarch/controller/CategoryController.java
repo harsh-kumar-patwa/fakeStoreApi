@@ -1,11 +1,10 @@
-package controller;
+package com.harshkumarpatwa.productservice9thmarch.controller;
 
-import models.Category;
+import com.harshkumarpatwa.productservice9thmarch.models.Category;
+import com.harshkumarpatwa.productservice9thmarch.services.CategoryServices;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import services.CategoryServices;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryController {

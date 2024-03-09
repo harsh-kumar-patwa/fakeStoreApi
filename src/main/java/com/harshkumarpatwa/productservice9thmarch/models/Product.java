@@ -1,4 +1,4 @@
-package models;
+package com.harshkumarpatwa.productservice9thmarch.models;
 
 import lombok.Getter;
 import lombok.Setter;

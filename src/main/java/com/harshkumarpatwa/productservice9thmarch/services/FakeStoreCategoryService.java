@@ -1,8 +1,8 @@
-package services;
+package com.harshkumarpatwa.productservice9thmarch.services;
 
-import dtos.FakeStoreAllCategoriesDto;
-import dtos.FakeStoreCategoryDto;
-import models.Category;
+import com.harshkumarpatwa.productservice9thmarch.dtos.FakeStoreAllCategoriesDto;
+import com.harshkumarpatwa.productservice9thmarch.dtos.FakeStoreCategoryDto;
+import com.harshkumarpatwa.productservice9thmarch.models.Category;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -30,13 +30,13 @@ public class FakeStoreCategoryService implements CategoryServices{
 
     @Override
     public Category getInCategory(String name) {
-        FakeStoreCategoryDto fakeStoreCategoryDto = restTemplate.getForObject(
-                "https://fakestoreapi.com/categories/"+name,
-                FakeStoreCategoryDto.class
-        );
-        Category newCategory = new Category();
-        newCategory.setId(fakeStoreCategoryDto.getId());
-        newCategory.setName(fakeStoreCategoryDto.getName());
+//        FakeStoreCategoryDto fakeStoreCategoryDto = restTemplate.getForObject(
+//                "https://fakestoreapi.com/categories/"+name,
+//                FakeStoreCategoryDto.class
+//        );
+        Category newCategory = new Category(name);
+//        newCategory.setId(fakeStoreCategoryDto.getId());
+//        newCategory.setName(fakeStoreCategoryDto.getName());
         return newCategory;
     }
 }

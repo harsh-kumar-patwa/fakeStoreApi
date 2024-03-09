@@ -1,8 +1,6 @@
-package services;
+package com.harshkumarpatwa.productservice9thmarch.services;
 
-import lombok.Getter;
-import lombok.Setter;
-import models.Category;
+import com.harshkumarpatwa.productservice9thmarch.models.Category;
 
 import java.util.List;
 

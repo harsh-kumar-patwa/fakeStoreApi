@@ -1,9 +1,10 @@
-package services;
+package com.harshkumarpatwa.productservice9thmarch.services;
 
-import dtos.FakeStoreAllProductsDto;
-import dtos.FakeStoreProductDto;
-import models.Category;
-import models.Product;
+import com.harshkumarpatwa.productservice9thmarch.dtos.FakeStoreAllProductsDto;
+import com.harshkumarpatwa.productservice9thmarch.dtos.FakeStoreProductDto;
+import com.harshkumarpatwa.productservice9thmarch.models.Category;
+import com.harshkumarpatwa.productservice9thmarch.models.Product;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -15,15 +16,17 @@ public class FakeStoreProductService implements ProductServices{
     private RestTemplate restTemplate = new RestTemplate();
 
     @Override
-    public List<Product> getAllProducts() {
-        FakeStoreAllProductsDto fakeStoreAllProductsDto = restTemplate.getForObject(
-                "https://fakestoreapi.com/products/",
-                FakeStoreAllProductsDto.class
-        );
-        List<Product> allProducts = new ArrayList<>();
-        for(int i =0;i<fakeStoreAllProductsDto.getProductList().size();i++){
-            allProducts.add(fakeStoreAllProductsDto.getProductList().get(i));
-        }
+    public Product[] getAllProducts() {
+
+        ResponseEntity<Product[]> response =
+                restTemplate.getForEntity(
+                        "https://fakestoreapi.com/products/",
+                        Product[].class);
+        Product[] allProducts = response.getBody();
+//        List<Product> allProducts = new ArrayList<>();
+//        for(int i =0;i<fakeStoreAllProductsDto.getProductList().size();i++){
+//            allProducts.add(fakeStoreAllProductsDto.getProductList().get(i));
+//        }
 
         return allProducts;
     }
@@ -39,8 +42,8 @@ public class FakeStoreProductService implements ProductServices{
         product.setName(fakeStoreProductDto.getTitle());
         product.setPrice(fakeStoreProductDto.getPrice());
         product.setImageUrl(fakeStoreProductDto.getImage());
-        product.setCategory(new Category());
-        product.getCategory().setName(fakeStoreProductDto.getCategory());
+        product.setCategory(new Category(fakeStoreProductDto.getCategory()));
+//        product.getCategory().setName(fakeStoreProductDto.getCategory());
 
         return product;
     }
@@ -63,7 +66,7 @@ public class FakeStoreProductService implements ProductServices{
 
         return product;
     }
-    public Product updateProduct(Long id, ){
+    public Product updateProduct(Long id){
 
         Product product = getSingleProduct(id);
         FakeStoreProductDto newProduct = new FakeStoreProductDto();

@@ -1,4 +1,4 @@
-package dtos;
+package com.harshkumarpatwa.productservice9thmarch.dtos;
 
 import lombok.Getter;
 import lombok.Setter;
