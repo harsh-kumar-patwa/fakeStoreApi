@@ -13,12 +13,11 @@ public class CategoryController {
     CategoryController(CategoryServices categoryServices){
         this.categoryServices=categoryServices;
     }
-    @GetMapping("/product/categories")
+    @GetMapping("/products/categories")
     public String[] getAllCategories(){
-
         return categoryServices.getAllCategories();
     }
-    @GetMapping("/categories/{categoryName}")
+    @GetMapping("/products/categories/{categoryName}")
     public Category getInCategory(@PathVariable("categoryName")String categoryName){
 
         return categoryServices.getInCategory(categoryName);
