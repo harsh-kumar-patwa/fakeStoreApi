@@ -28,7 +28,7 @@ public class FakeStoreProductService implements ProductServices{
 //            allProducts.add(fakeStoreAllProductsDto.getProductList().get(i));
 //        }
 
-        return allProducts;
+            return allProducts;
     }
 
     @Override
@@ -82,7 +82,7 @@ public class FakeStoreProductService implements ProductServices{
 
 
         restTemplate.put(
-                "https:/fakestoreapi.com/product/"+id,newProduct
+                "https://fakestoreapi.com/product/"+id,newProduct
         );
         return product;
     }

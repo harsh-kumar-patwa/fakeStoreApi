@@ -10,8 +10,8 @@ import java.util.List;
 @RestController
 public class ProductController {
     private ProductServices productService;
-
     public ProductController(ProductServices productService){
+
         this.productService=productService;
     }
     @GetMapping("/products/product/{limit}")
@@ -31,6 +31,7 @@ public class ProductController {
     }
     @PostMapping("/products")
     public Product addProduct(@RequestBody Product product){
+
         return productService.addProduct(product);
     }
     @PatchMapping("/products/{id}")
@@ -40,6 +41,7 @@ public class ProductController {
     }
     @DeleteMapping("/products/{id}")
     public Product deleteProduct(@PathVariable("id")Long id){
+
         return productService.deleteProduct(id);
     }
 
