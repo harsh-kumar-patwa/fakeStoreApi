@@ -10,4 +10,5 @@ public interface ProductServices {
     Product addProduct(Product product);
     Product updateProduct(Long id);
     Product deleteProduct(Long id);
+    Product[] getLimitedProducts(int limit);
 }

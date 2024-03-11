@@ -93,4 +93,15 @@ public class FakeStoreProductService implements ProductServices{
         return productToBeDeleted;
     }
 
+    @Override
+    public Product[] getLimitedProducts(int limit) {
+        Product[] limitedProductList = new Product[limit];
+        for(long i=0L;i<limit;i++){
+            Product product = getSingleProduct(i+1);
+            int index = (int)i;
+            limitedProductList[index]=product;
+        }
+        return limitedProductList;
+    }
+
 }

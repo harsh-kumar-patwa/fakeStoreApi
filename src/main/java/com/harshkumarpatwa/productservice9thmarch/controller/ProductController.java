@@ -14,6 +14,10 @@ public class ProductController {
     public ProductController(ProductServices productService){
         this.productService=productService;
     }
+    @GetMapping("/products/product/{limit}")
+    public Product[] getLimitedProducts(@PathVariable("limit") int limit){
+        return productService.getLimitedProducts(limit);
+    }
 
     @GetMapping("/products")
     public Product[] getAllProducts(){
